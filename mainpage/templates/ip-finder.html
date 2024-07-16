@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Locator</title>
+</head>
+<body>
+    <h1>IP Locator</h1>
+    <form method="get">
+        <label for="ip_address">Enter IP Address:</label>
+        <input type="text" id="ip_address" name="ip" value="{{ request.GET.ip }}">
+        <button type="submit">Locate</button>
+    </form>
+    {% if data %}
+        <h2>Details for {{ data.query }}</h2>
+        <ul>
+            <li>Country: {{ data.country }}</li>
+            <li>City: {{ data.city }}</li>
+            <li>Region: {{ data.regionName }}</li>
+            <li>ISP: {{ data.isp }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
